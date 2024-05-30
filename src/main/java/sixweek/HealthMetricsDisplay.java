@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 public class HealthMetricsDisplay {
     private final Scanner scanner;
+    private Record record;
 
-    public HealthMetricsDisplay(Scanner scanner) {
+    public HealthMetricsDisplay(Scanner scanner, Record record) {
         this.scanner = scanner;
+        this.record = record;
     }
 
-    public void displayResults() {
+    public void displayResult() {
         System.out.print("성별을 입력하세요 (male/female): ");
         String gender = scanner.next();
+
         if (!gender.equals("male") && !gender.equals("female")) {
             System.out.println("올바른 성별을 입력하세요 (male 또는 female).");
             return;
@@ -26,12 +29,7 @@ public class HealthMetricsDisplay {
         System.out.print("나이를 입력하세요: ");
         int age = scanner.nextInt();
 
-        HealthMetrics metrics = new HealthMetrics(height, weight, age, gender);
-
-        System.out.printf("BMI: %.2f\n", metrics.calculateBMI());
-        System.out.printf("기초 대사량(BMR): %.2f 칼로리\n", metrics.calculateBMR());
-        System.out.printf("체지방률: %.2f%%\n", metrics.calculateBodyFatPercentage());
-        System.out.printf("골격근량: %.2f kg\n", metrics.calculateMuscleMass());
-        System.out.printf("체수분량: %.2f kg\n", metrics.calculateBodyWater());
+        HealthMetrics metrics = new HealthMetrics(height, weight, age, gender, record);
+        metrics.start();
     }
 }

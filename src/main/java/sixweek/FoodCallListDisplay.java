@@ -3,13 +3,15 @@ import java.util.Scanner;
 
 public class FoodCallListDisplay {
     private final Scanner scanner;
+    private final Record record;
     private final String[] foodName = {
             "닭 가슴살", "연어", "콩류", "계란", "그릭 요거트", "쿼트 치즈", "퀴노아", "호두", "아몬드",
             "소고기", "돼지고기", "가재", "참치", "부두 체리", "템페", "강낭콩", "치킨 브레스트", "치즈", "에다마메", "터키"
     };
 
-    public FoodCallListDisplay(Scanner scanner) {
+    public FoodCallListDisplay(Scanner scanner, Record record) {
         this.scanner = scanner;
+        this.record = record;
     }
 
     public void displayResult() {
