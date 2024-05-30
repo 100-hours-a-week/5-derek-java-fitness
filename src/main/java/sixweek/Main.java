@@ -6,6 +6,10 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // 현재 시간 표시 스레드 시작
+        CurrentTimeThread timeThread = new CurrentTimeThread();
+        timeThread.start();
+
         int choice;
         boolean continueRunning = true;
         WordArt wordArt = new WordArt();
